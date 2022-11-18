@@ -8,32 +8,53 @@ namespace mdi
         {
             InitializeComponent();
             intance = this;
-           
+            menuStrip1.Enabled = false;
+            isloged = false;
+             
         }
-        produtos produtos;
+        public bool isloged;
+        produtos prod;
+        reparacoes rep;
+       
+        public void activar(bool a)
+        {
+            menuStrip1.Enabled = a;
+
+        }
+
         private void novoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (produtos == null)
+            if (prod == null)
             {
-                produtos = new produtos();
-                produtos.MdiParent = this;
-                produtos.FormClosed += Produtos_FormClosed;
-                produtos.Show();
+                prod = new produtos();
+                prod.MdiParent = this;
+                prod.FormClosed += Produtos_FormClosed;
+                prod.Show();
             }
-            else produtos.Activate();
+            else prod.Activate();
+            
         }
 
         private void Produtos_FormClosed(object? sender, FormClosedEventArgs e)
         {
             //throw new NotImplementedException();
-            produtos = null;
+            prod = null;
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
             
-            login lg = new login();
-            lg.Show();
+            
+            if(isloged == true)
+            {
+                label1.Text = "              login";
+                isloged=false;
+
+            }else
+            {
+                login lg = new login();
+                lg.Show();
+            }
         }
 
         public void alterarlabel(string aaa)
@@ -41,15 +62,36 @@ namespace mdi
             label1.Text = aaa;
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
+ 
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             DateTime a = DateTime.Now;
             toolStripStatusLabel1.Text = a.ToString();
+        }
+
+        private void fwefwefwefToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void registroDeAvariasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (rep == null)
+            {
+                rep = new reparacoes();
+                rep.MdiParent = this;
+                rep.FormClosed += reparacoes_FormClosed;
+                rep.Show();
+            }
+            else rep.Activate();
+
+        }
+
+        private void reparacoes_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            //throw new NotImplementedException();
+            rep = null;
         }
     }
 }

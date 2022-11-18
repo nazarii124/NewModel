@@ -89,6 +89,7 @@
             this.fwefwefwefToolStripMenuItem.Name = "fwefwefwefToolStripMenuItem";
             this.fwefwefwefToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.fwefwefwefToolStripMenuItem.Text = "Ficheiro";
+            this.fwefwefwefToolStripMenuItem.Click += new System.EventHandler(this.fwefwefwefToolStripMenuItem_Click);
             // 
             // abrirToolStripMenuItem
             // 
@@ -152,42 +153,42 @@
             // listagemToolStripMenuItem
             // 
             this.listagemToolStripMenuItem.Name = "listagemToolStripMenuItem";
-            this.listagemToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.listagemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.listagemToolStripMenuItem.Text = "Listagem";
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(127, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
             // 
             // novoToolStripMenuItem
             // 
             this.novoToolStripMenuItem.Name = "novoToolStripMenuItem";
-            this.novoToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.novoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.novoToolStripMenuItem.Text = "Novo";
             this.novoToolStripMenuItem.Click += new System.EventHandler(this.novoToolStripMenuItem_Click);
             // 
             // editarToolStripMenuItem
             // 
             this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editarToolStripMenuItem.Text = "Editar";
             // 
             // apagarToolStripMenuItem
             // 
             this.apagarToolStripMenuItem.Name = "apagarToolStripMenuItem";
-            this.apagarToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.apagarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.apagarToolStripMenuItem.Text = "Apagar";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(127, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
             // 
             // categoriasToolStripMenuItem
             // 
             this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.categoriasToolStripMenuItem.Text = "Categorias";
             // 
             // vendasToolStripMenuItem
@@ -203,19 +204,19 @@
             // registarToolStripMenuItem
             // 
             this.registarToolStripMenuItem.Name = "registarToolStripMenuItem";
-            this.registarToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.registarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.registarToolStripMenuItem.Text = "Registar";
             // 
             // consultarToolStripMenuItem
             // 
             this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
-            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.consultarToolStripMenuItem.Text = "Consultar";
             // 
             // vendasMensaisToolStripMenuItem
             // 
             this.vendasMensaisToolStripMenuItem.Name = "vendasMensaisToolStripMenuItem";
-            this.vendasMensaisToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.vendasMensaisToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.vendasMensaisToolStripMenuItem.Text = "Vendas Mensais";
             // 
             // reparaçõesToolStripMenuItem
@@ -230,13 +231,14 @@
             // registroDeAvariasToolStripMenuItem
             // 
             this.registroDeAvariasToolStripMenuItem.Name = "registroDeAvariasToolStripMenuItem";
-            this.registroDeAvariasToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.registroDeAvariasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.registroDeAvariasToolStripMenuItem.Text = "Registro de Avarias";
+            this.registroDeAvariasToolStripMenuItem.Click += new System.EventHandler(this.registroDeAvariasToolStripMenuItem_Click);
             // 
             // consultaGeralToolStripMenuItem
             // 
             this.consultaGeralToolStripMenuItem.Name = "consultaGeralToolStripMenuItem";
-            this.consultaGeralToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.consultaGeralToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.consultaGeralToolStripMenuItem.Text = "Consulta Geral";
             // 
             // label1
@@ -244,11 +246,11 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Font = new System.Drawing.Font("Sitka Banner", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(755, 6);
+            this.label1.Location = new System.Drawing.Point(725, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 18);
+            this.label1.Size = new System.Drawing.Size(78, 18);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Login";
+            this.label1.Text = "              Login";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // statusStrip1
