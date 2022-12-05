@@ -149,6 +149,7 @@
             this.fwefwefweToolStripMenuItem.Name = "fwefwefweToolStripMenuItem";
             this.fwefwefweToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.fwefwefweToolStripMenuItem.Text = "Produtos";
+           
             // 
             // listagemToolStripMenuItem
             // 
@@ -204,19 +205,19 @@
             // registarToolStripMenuItem
             // 
             this.registarToolStripMenuItem.Name = "registarToolStripMenuItem";
-            this.registarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.registarToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.registarToolStripMenuItem.Text = "Registar";
             // 
             // consultarToolStripMenuItem
             // 
             this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
-            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.consultarToolStripMenuItem.Text = "Consultar";
             // 
             // vendasMensaisToolStripMenuItem
             // 
             this.vendasMensaisToolStripMenuItem.Name = "vendasMensaisToolStripMenuItem";
-            this.vendasMensaisToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.vendasMensaisToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.vendasMensaisToolStripMenuItem.Text = "Vendas Mensais";
             // 
             // reparaçõesToolStripMenuItem
@@ -231,14 +232,14 @@
             // registroDeAvariasToolStripMenuItem
             // 
             this.registroDeAvariasToolStripMenuItem.Name = "registroDeAvariasToolStripMenuItem";
-            this.registroDeAvariasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.registroDeAvariasToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.registroDeAvariasToolStripMenuItem.Text = "Registro de Avarias";
             this.registroDeAvariasToolStripMenuItem.Click += new System.EventHandler(this.registroDeAvariasToolStripMenuItem_Click);
             // 
             // consultaGeralToolStripMenuItem
             // 
             this.consultaGeralToolStripMenuItem.Name = "consultaGeralToolStripMenuItem";
-            this.consultaGeralToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.consultaGeralToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.consultaGeralToolStripMenuItem.Text = "Consulta Geral";
             // 
             // label1
