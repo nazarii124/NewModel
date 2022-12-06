@@ -27,15 +27,8 @@ namespace mdi
             codigo = textBox1.Text;
             produto = textBox2.Text;
             preco = textBox3.Text; 
+           
             
-
-            
-            /*  
-            textBox1.Clear();
-            textBox2.Clear();
-            textBox3.Clear();
-            comboBox1.SelectedIndex = -1;
-            */
 
             //verificar se os dados são validos
             int x;
@@ -44,31 +37,31 @@ namespace mdi
             {
 
                 ///verificar se o codigo é inteiro 
-                if(!int.TryParse(textBox1.Text, out x))
+                if(!int.TryParse(codigo, out x))
                 {
                     textBox1.Focus();
                     throw new Exception("Insira um Codigo Inteiro");
-                }else if (Convert.ToInt32(textBox1.Text) < 100)
+                }else if (Convert.ToInt32(codigo) < 100)
                 {
                     textBox1.Focus();
                     throw new Exception("Insira um Codigo com 3 ou mais digitos");
                 }
                 //verificar se é uma descricão valida
-                if(textBox2.Text.Equals("") ||
-                    textBox2.Text.Length < 3 ||
-                    textBox2.Text.Length > 50)
+                if(produto.Equals("") ||
+                    produto.Length < 3 ||
+                    produto.Length > 50)
                 {
                     textBox2.Focus();
-                    throw new Exception("Insira uma descrição com 3 digitos e superior a 50");
+                    throw new Exception("Insira um produto com 3 digitos e inferior a 50");
                 }
 
-                if(double.TryParse(textBox3.Text, out y))
+                if(!double.TryParse(preco, out y))
                 {
-                    textBox2.Focus();
+                    textBox3.Focus();
                     throw new Exception("Digite um valor numerico");
-                }else if (Convert.ToDouble(textBox3) <= 0)
+                }else if (Convert.ToDouble(preco) <= 0)
                 {
-                    textBox2.Focus();
+                    textBox3.Focus();
                     throw new Exception("Digite um valor superior a 0");
                 }
             }
@@ -78,8 +71,13 @@ namespace mdi
                 return;
             }
 
-                listBox1.Items.Add(codigo + "--" + produto + "--" + preco + "€");
 
+             listBox1.Items.Add(codigo + "|" + produto + "|" + preco + "€");
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            comboBox1.SelectedIndex = -1;
+            textBox1.Focus();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -103,7 +101,7 @@ namespace mdi
         {
             //criar e inicializar produtos
             Produtos = new prodc[maxproduts];
-
+           
             InitializeComponent();
             //combobox conf 
             comboBox1.Items.Clear();
@@ -111,16 +109,7 @@ namespace mdi
             comboBox1.Items.Add("Software");
             comboBox1.SelectedIndex = -1;
         }
-        private void Limpar()
-        {
-            
-        }
 
-        private void produtos_Load(object sender, EventArgs e)
-        {
-            Limpar();
-
-        }
         
         private void AdicionaProduto(prodc p)
         {
@@ -130,7 +119,27 @@ namespace mdi
             }
 
         }
-        
+
+    
+
+        private void listBox1_DoubleClick_1(object sender, EventArgs e)
+        {
+            string[] campos = listBox1.SelectedItem.ToString().Split('|');
+
+                
+         
+            textBox1.Text = campos[0].Trim();
+            textBox2.Text = campos[1].Trim();
+           switch (campos[2].Trim())
+            {
+                case "Hardware": comboBox1.SelectedIndex = 0; break;
+                case "Software": comboBox1.SelectedIndex = 1; break;
+                default: comboBox1.SelectedIndex = -1; break;
+
+            }
+            textBox3.Text = campos[3].Trim();
+            textBox1.Focus();
+        }
     }
 
 }
