@@ -72,7 +72,7 @@ namespace mdi
             }
 
 
-             listBox1.Items.Add(codigo + "|" + produto + "|" + preco + "€");
+            listBox1.Items.Add(codigo + "|" + produto + "|" + preco + "€");
             textBox1.Clear();
             textBox2.Clear();
             textBox3.Clear();
@@ -124,21 +124,27 @@ namespace mdi
 
         private void listBox1_DoubleClick_1(object sender, EventArgs e)
         {
-            string[] campos = listBox1.SelectedItem.ToString().Split('|');
-
-                
-         
+            string[] campos = new string[5];
+            campos = listBox1.SelectedItem.ToString().Split('|');
+            //campos[1] = listBox1.SelectedItem.ToString().Split('|');
+            //campos[2] = listBox1.SelectedItem.ToString().Split('|');
+            //campos[3] = listBox1.SelectedItem.ToString().Split('|');
             textBox1.Text = campos[0].Trim();
             textBox2.Text = campos[1].Trim();
-           switch (campos[2].Trim())
+          /* switch (campos[2].Trim())
             {
                 case "Hardware": comboBox1.SelectedIndex = 0; break;
                 case "Software": comboBox1.SelectedIndex = 1; break;
                 default: comboBox1.SelectedIndex = -1; break;
 
-            }
-            textBox3.Text = campos[3].Trim();
+            }*/
+            textBox3.Text = campos[2].Trim();
             textBox1.Focus();
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 

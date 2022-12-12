@@ -36,13 +36,13 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // label1
@@ -109,16 +109,6 @@
             this.textBox3.Size = new System.Drawing.Size(100, 27);
             this.textBox3.TabIndex = 1;
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 15;
-            this.listBox1.Location = new System.Drawing.Point(377, 12);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(411, 394);
-            this.listBox1.TabIndex = 2;
-            this.listBox1.DoubleClick += new System.EventHandler(this.listBox1_DoubleClick_1);
-            // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
@@ -176,17 +166,27 @@
             this.toolTip1.SetToolTip(this.button4, "Este botão Confirma a Compra");
             this.button4.UseVisualStyleBackColor = true;
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 15;
+            this.listBox1.Location = new System.Drawing.Point(377, 29);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(411, 394);
+            this.listBox1.TabIndex = 8;
+            this.listBox1.DoubleClick += new System.EventHandler(this.listBox1_DoubleClick_1);
+            // 
             // produtos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
@@ -210,12 +210,12 @@
         private TextBox textBox1;
         private TextBox textBox2;
         private TextBox textBox3;
-        private ListBox listBox1;
         private ComboBox comboBox1;
         private Button button1;
         private Button button2;
         private Button button3;
         private Button button4;
         private ToolTip toolTip1;
+        private ListBox listBox1;
     }
 }

@@ -1,3 +1,5 @@
+using System.Security.Cryptography;
+
 namespace mdi
 {
     public partial class form1 : Form
@@ -15,6 +17,7 @@ namespace mdi
         public bool isloged;
         produtos prod;
         reparacoes rep;
+        categorias list;
        
         public void activar(bool a)
         {
@@ -93,6 +96,24 @@ namespace mdi
             //throw new NotImplementedException();
             rep = null;
         }
+
+        private void listagemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (list == null)
+            {
+                list = new categorias();
+                list.MdiParent = this;
+                list.FormClosed += categorias_FormClosed;
+                list.Show();
+            }
+            else prod.Activate();
+        }
+        private void categorias_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            //throw new NotImplementedException();
+            list = null;
+        }
+
 
     }
 }
