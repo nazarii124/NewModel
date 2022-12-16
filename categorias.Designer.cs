@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtZona = new System.Windows.Forms.TextBox();
+            this.txtCategoria = new System.Windows.Forms.TextBox();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,41 +40,41 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.grelha = new System.Windows.Forms.DataGridView();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtPrateleira = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtFila = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.grelha)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox3
+            // txtZona
             // 
-            this.textBox3.Location = new System.Drawing.Point(145, 158);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(101, 27);
-            this.textBox3.TabIndex = 8;
+            this.txtZona.Location = new System.Drawing.Point(144, 122);
+            this.txtZona.Multiline = true;
+            this.txtZona.Name = "txtZona";
+            this.txtZona.Size = new System.Drawing.Size(101, 27);
+            this.txtZona.TabIndex = 8;
             // 
-            // textBox2
+            // txtCategoria
             // 
-            this.textBox2.Location = new System.Drawing.Point(146, 89);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(247, 27);
-            this.textBox2.TabIndex = 9;
+            this.txtCategoria.Location = new System.Drawing.Point(146, 89);
+            this.txtCategoria.Multiline = true;
+            this.txtCategoria.Name = "txtCategoria";
+            this.txtCategoria.Size = new System.Drawing.Size(247, 27);
+            this.txtCategoria.TabIndex = 9;
             // 
-            // textBox1
+            // txtCodigo
             // 
-            this.textBox1.Location = new System.Drawing.Point(146, 56);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 27);
-            this.textBox1.TabIndex = 10;
+            this.txtCodigo.Location = new System.Drawing.Point(146, 56);
+            this.txtCodigo.Multiline = true;
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(100, 27);
+            this.txtCodigo.TabIndex = 10;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(90, 158);
+            this.label4.Location = new System.Drawing.Point(89, 122);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 18);
             this.label4.TabIndex = 4;
@@ -84,7 +84,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(46, 122);
+            this.label3.Location = new System.Drawing.Point(44, 185);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(94, 18);
             this.label3.TabIndex = 5;
@@ -96,9 +96,9 @@
             this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(62, 88);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 18);
+            this.label2.Size = new System.Drawing.Size(94, 18);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Produto:";
+            this.label2.Text = "Categoria:";
             // 
             // label1
             // 
@@ -118,6 +118,7 @@
             this.button4.TabIndex = 15;
             this.button4.Text = "Confirmar";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -127,6 +128,7 @@
             this.button3.TabIndex = 14;
             this.button3.Text = "Limpar";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -156,38 +158,38 @@
             // grelha
             // 
             this.grelha.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grelha.Location = new System.Drawing.Point(305, 122);
+            this.grelha.Location = new System.Drawing.Point(295, 122);
             this.grelha.Name = "grelha";
             this.grelha.RowTemplate.Height = 25;
-            this.grelha.Size = new System.Drawing.Size(483, 182);
+            this.grelha.Size = new System.Drawing.Size(493, 182);
             this.grelha.TabIndex = 16;
             this.grelha.DoubleClick += new System.EventHandler(this.grelha_DoubleClick);
             // 
-            // textBox4
+            // txtPrateleira
             // 
-            this.textBox4.Location = new System.Drawing.Point(146, 125);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(99, 27);
-            this.textBox4.TabIndex = 8;
+            this.txtPrateleira.Location = new System.Drawing.Point(144, 188);
+            this.txtPrateleira.Multiline = true;
+            this.txtPrateleira.Name = "txtPrateleira";
+            this.txtPrateleira.Size = new System.Drawing.Size(99, 27);
+            this.txtPrateleira.TabIndex = 8;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(91, 200);
+            this.label5.Location = new System.Drawing.Point(90, 164);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(37, 18);
             this.label5.TabIndex = 4;
             this.label5.Text = "Fila";
             // 
-            // textBox5
+            // txtFila
             // 
-            this.textBox5.Location = new System.Drawing.Point(145, 191);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 27);
-            this.textBox5.TabIndex = 8;
+            this.txtFila.Location = new System.Drawing.Point(144, 155);
+            this.txtFila.Multiline = true;
+            this.txtFila.Name = "txtFila";
+            this.txtFila.Size = new System.Drawing.Size(100, 27);
+            this.txtFila.TabIndex = 8;
             // 
             // categorias
             // 
@@ -199,11 +201,11 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtPrateleira);
+            this.Controls.Add(this.txtFila);
+            this.Controls.Add(this.txtZona);
+            this.Controls.Add(this.txtCategoria);
+            this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -219,9 +221,9 @@
         }
 
         #endregion
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox txtZona;
+        private TextBox txtCategoria;
+        private TextBox txtCodigo;
         private Label label4;
         private Label label3;
         private Label label2;
@@ -231,8 +233,8 @@
         private Button button2;
         private Button button1;
         private DataGridView grelha;
-        private TextBox textBox4;
+        private TextBox txtPrateleira;
         private Label label5;
-        private TextBox textBox5;
+        private TextBox txtFila;
     }
 }

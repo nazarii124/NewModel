@@ -19,7 +19,7 @@ namespace mdi
             private const int MaxCategorias = 100;
             private readonly cate[] categoria;
 
-        private int num_categorias;
+        private int num_categorias=0;
        
         public categorias()
         { 
@@ -31,11 +31,11 @@ namespace mdi
         
         private void limpar()
         {
-            textBox1.Clear();
-            textBox2.Clear();
-            textBox3.Clear();
-            textBox4.Clear();
-            textBox5.Clear();
+            txtCodigo.Clear();
+            txtCategoria.Clear();
+            txtZona.Clear();
+            txtPrateleira.Clear();
+            txtFila.Clear();
 
         }
 
@@ -62,63 +62,60 @@ namespace mdi
             grelha.Columns[4].Width = 100;
             grelha.Rows.Clear();
             limpar();
-
-
-
-
-
         }
+        private int poslinha = -1;
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             int x;
             //double y;
             try
             {
 
                 ///verificar se o codigo é inteiro 
-                if (!int.TryParse(textBox1.Text, out x))
+                if (!int.TryParse(txtCodigo.Text, out x))
                 {
-                    textBox1.Focus();
+                    txtCodigo.Focus();
                     throw new Exception("Insira um Codigo Inteiro");
                 }
-                else if (Convert.ToInt32(textBox1.Text) < 100)
+                else if (Convert.ToInt32(txtCodigo.Text) < 100)
                 {
-                    textBox1.Focus();
+                    txtCodigo.Focus();
                     throw new Exception("Insira um Codigo com 3 ou mais digitos");
                 }
                 //verificar se é uma descricão valida
-                if (textBox2.Text.Equals("") ||
-                    textBox2.Text.Length < 3 ||
-                    textBox2.Text.Length > 50)
+                if (txtCategoria.Text.Equals("") ||
+                    txtCategoria.Text.Length < 3 ||
+                    txtCategoria.Text.Length > 50)
                 {
-                    textBox2.Focus();
+                    txtCategoria.Focus();
                     throw new Exception("Insira um produto com 3 digitos e inferior a 50");
                 }
-                if (textBox3.Text.Equals("") ||
-                   !System.Text.RegularExpressions.Regex.IsMatch(textBox3.Text, "^[a-zA-Z]"))
+                if (txtZona.Text.Equals("") ||
+                   !System.Text.RegularExpressions.Regex.IsMatch(txtZona.Text, "^[a-zA-Z]"))
                 {
-                    textBox3.Focus();
+                    txtZona.Focus();
                     throw new Exception("Insira a zona (letra A a Z)");
 
                 }
-                if (!int.TryParse(textBox5.Text, out x))
+                if (!int.TryParse(txtFila.Text, out x))
                 {
-                    textBox5.Focus();
+                    txtFila.Focus();
                     throw new Exception("Insira na fila um valor inteiro");
                 }
-                else if (Convert.ToInt32(textBox5.Text) < 1 || Convert.ToInt32(textBox5.Text) >100)
+                else if (Convert.ToInt32(txtFila.Text) < 1 || Convert.ToInt32(txtFila.Text) >100)
                 {
-                    textBox5.Focus();
+                    txtFila.Focus();
                     throw new Exception("Digite um valor para a fila entre 1 e 100");
                 }
-                if(!int.TryParse(textBox4.Text, out x))
+                if(!int.TryParse(txtPrateleira.Text, out x))
                 {
-                    textBox4.Focus();
+                    txtPrateleira.Focus();
                     throw new Exception("Insira na prateleira um valor inteiro.");
-                } else if(Convert.ToInt32(textBox4.Text) < 1 || Convert.ToInt32(textBox4.Text) > 10)
+                } else if(Convert.ToInt32(txtPrateleira.Text) < 1 || Convert.ToInt32(txtPrateleira.Text) > 10)
                 {
-                    textBox4.Focus();
+                    txtPrateleira.Focus();
                     throw new Exception("Insira na prateleira um valor entre 1 e 10.");
                 }
             }
@@ -129,23 +126,63 @@ namespace mdi
             }
 
             //colocar uma linha no datagridview
-            grelha.Rows.Add(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text);
+            grelha.Rows.RemoveAt(poslinha);
+            grelha.Rows.Insert(poslinha,txtCodigo.Text, txtCategoria.Text, txtZona.Text, txtFila.Text, txtPrateleira.Text);
             limpar();
 
         }
-        private int poslinha = -1;
+        
 
         private void grelha_DoubleClick(object sender, EventArgs e)
         {
             poslinha = grelha.CurrentCell.RowIndex;
             if(poslinha != -1)
             {
-                textBox1.Text = grelha.Rows[poslinha].Cells[0].Value.ToString();
-                textBox2.Text = grelha.Rows[poslinha].Cells[1].Value.ToString();
-                textBox3.Text = grelha.Rows[poslinha].Cells[2].Value.ToString();
-                textBox4.Text = grelha.Rows[poslinha].Cells[3].Value.ToString();
-                textBox5.Text = grelha.Rows[poslinha].Cells[4].Value.ToString();
-                textBox1.Focus();
+                txtCodigo.Text = grelha.Rows[poslinha].Cells[0].Value.ToString();
+                txtCategoria.Text = grelha.Rows[poslinha].Cells[1].Value.ToString();
+                txtZona.Text = grelha.Rows[poslinha].Cells[2].Value.ToString();
+                txtFila.Text = grelha.Rows[poslinha].Cells[3].Value.ToString();
+                txtPrateleira.Text = grelha.Rows[poslinha].Cells[4].Value.ToString();
+                txtCodigo.Focus();
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if(poslinha != -1)
+            {
+                grelha.Rows.RemoveAt(poslinha);
+                poslinha = -1;
+                limpar();
+            }
+            else
+            {
+                MessageBox.Show("Não existe categoria selecionada", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+        }
+
+        private void AdicionarCategoria(cate c)
+        {
+            if (num_categorias < MaxCategorias)
+            {
+                categoria[num_categorias++] = c;
+            }
+
+        }
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+            //colocar os dados
+            foreach(DataGridViewRow linha in grelha.Rows)
+            {
+                int codigo = Convert.ToInt32(linha.Cells[0].Value.ToString());
+                string xcategoria = linha.Cells[1].Value.ToString();
+                string zona = linha.Cells[2].Value.ToString();
+                int fila = Convert.ToInt32(linha.Cells[3].Value.ToString());
+                int prateleira = Convert.ToInt32(linha.Cells[4].Value.ToString());
+
+                AdicionarCategoria(new cate(codigo, xcategoria, zona, fila, prateleira));
 
 
             }
