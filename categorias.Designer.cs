@@ -35,14 +35,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnRemover = new System.Windows.Forms.Button();
+            this.btnAdicionar = new System.Windows.Forms.Button();
             this.grelha = new System.Windows.Forms.DataGridView();
             this.txtPrateleira = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtFila = new System.Windows.Forms.TextBox();
+            this.btnAlterar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grelha)).BeginInit();
             this.SuspendLayout();
             // 
@@ -110,15 +111,15 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Código:";
             // 
-            // button4
+            // btnGuardar
             // 
-            this.button4.Location = new System.Drawing.Point(165, 310);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(332, 65);
-            this.button4.TabIndex = 15;
-            this.button4.Text = "Confirmar";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnGuardar.Location = new System.Drawing.Point(456, 310);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(332, 65);
+            this.btnGuardar.TabIndex = 15;
+            this.btnGuardar.Text = "Confirmar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // button3
             // 
@@ -130,30 +131,30 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button2
+            // btnRemover
             // 
-            this.button2.Location = new System.Drawing.Point(54, 239);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(105, 65);
-            this.button2.TabIndex = 13;
-            this.button2.Tag = "";
-            this.button2.Text = "Remover";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnRemover.Location = new System.Drawing.Point(54, 239);
+            this.btnRemover.Name = "btnRemover";
+            this.btnRemover.Size = new System.Drawing.Size(105, 65);
+            this.btnRemover.TabIndex = 13;
+            this.btnRemover.Tag = "";
+            this.btnRemover.Text = "Remover";
+            this.btnRemover.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnAdicionar
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(165, 239);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 65);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Adicionar";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnAdicionar.BackColor = System.Drawing.SystemColors.Control;
+            this.btnAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdicionar.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAdicionar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdicionar.Location = new System.Drawing.Point(165, 239);
+            this.btnAdicionar.Margin = new System.Windows.Forms.Padding(0);
+            this.btnAdicionar.Name = "btnAdicionar";
+            this.btnAdicionar.Size = new System.Drawing.Size(108, 65);
+            this.btnAdicionar.TabIndex = 12;
+            this.btnAdicionar.Text = "Adicionar";
+            this.btnAdicionar.UseVisualStyleBackColor = false;
+            this.btnAdicionar.Click += new System.EventHandler(this.button1_Click);
             // 
             // grelha
             // 
@@ -191,16 +192,32 @@
             this.txtFila.Size = new System.Drawing.Size(100, 27);
             this.txtFila.TabIndex = 8;
             // 
+            // btnAlterar
+            // 
+            this.btnAlterar.BackColor = System.Drawing.SystemColors.Control;
+            this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAlterar.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAlterar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAlterar.Location = new System.Drawing.Point(165, 310);
+            this.btnAlterar.Margin = new System.Windows.Forms.Padding(0);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(108, 65);
+            this.btnAlterar.TabIndex = 12;
+            this.btnAlterar.Text = "Alterar";
+            this.btnAlterar.UseVisualStyleBackColor = false;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
+            // 
             // categorias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.grelha);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnRemover);
+            this.Controls.Add(this.btnAlterar);
+            this.Controls.Add(this.btnAdicionar);
             this.Controls.Add(this.txtPrateleira);
             this.Controls.Add(this.txtFila);
             this.Controls.Add(this.txtZona);
@@ -228,13 +245,14 @@
         private Label label3;
         private Label label2;
         private Label label1;
-        private Button button4;
+        private Button btnGuardar;
         private Button button3;
-        private Button button2;
-        private Button button1;
+        private Button btnRemover;
+        private Button btnAdicionar;
         private DataGridView grelha;
         private TextBox txtPrateleira;
         private Label label5;
         private TextBox txtFila;
+        private Button btnAlterar;
     }
 }

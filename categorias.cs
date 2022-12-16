@@ -29,7 +29,7 @@ namespace mdi
             InitializeComponent();
         }
         
-        private void limpar()
+        private void Limpar()
         {
             txtCodigo.Clear();
             txtCategoria.Clear();
@@ -61,7 +61,7 @@ namespace mdi
             grelha.Columns[4].Name = "Prateleira";
             grelha.Columns[4].Width = 100;
             grelha.Rows.Clear();
-            limpar();
+            Limpar();
         }
         private int poslinha = -1;
 
@@ -79,7 +79,7 @@ namespace mdi
                     txtCodigo.Focus();
                     throw new Exception("Insira um Codigo Inteiro");
                 }
-                else if (Convert.ToInt32(txtCodigo.Text) < 100)
+                else if (Convert.ToInt32(txtCodigo.Text) < 1)
                 {
                     txtCodigo.Focus();
                     throw new Exception("Insira um Codigo com 3 ou mais digitos");
@@ -126,9 +126,12 @@ namespace mdi
             }
 
             //colocar uma linha no datagridview
-            grelha.Rows.RemoveAt(poslinha);
-            grelha.Rows.Insert(poslinha,txtCodigo.Text, txtCategoria.Text, txtZona.Text, txtFila.Text, txtPrateleira.Text);
-            limpar();
+            grelha.Rows.Add(txtCodigo.Text, txtCategoria.Text, txtZona.Text, txtFila.Text, txtPrateleira.Text);
+
+            //para o botao atualizar
+            //grelha.Rows.RemoveAt(poslinha);
+            //grelha.Rows.Insert(poslinha,txtCodigo.Text, txtCategoria.Text, txtZona.Text, txtFila.Text, txtPrateleira.Text);
+            Limpar();
 
         }
         
@@ -153,7 +156,7 @@ namespace mdi
             {
                 grelha.Rows.RemoveAt(poslinha);
                 poslinha = -1;
-                limpar();
+                Limpar();
             }
             else
             {
@@ -170,22 +173,90 @@ namespace mdi
             }
 
         }
-        private void button4_Click(object sender, EventArgs e)
-        {
 
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
             //colocar os dados
-            foreach(DataGridViewRow linha in grelha.Rows)
+            foreach (DataGridViewRow linha in grelha.Rows)
             {
                 int codigo = Convert.ToInt32(linha.Cells[0].Value.ToString());
-                string xcategoria = linha.Cells[1].Value.ToString();
+                string categoria = linha.Cells[1].Value.ToString();
                 string zona = linha.Cells[2].Value.ToString();
-                int fila = Convert.ToInt32(linha.Cells[3].Value.ToString());
+                var fila = Convert.ToInt32(linha.Cells[3].Value.ToString());
                 int prateleira = Convert.ToInt32(linha.Cells[4].Value.ToString());
 
-                AdicionarCategoria(new cate(codigo, xcategoria, zona, fila, prateleira));
+                AdicionarCategoria(new cate(codigo, categoria, zona, fila, prateleira));
 
-
+                this.Close();
             }
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            if (poslinha == -1) return;
+
+            int x;
+            //double y;
+            try
+            {
+
+                ///verificar se o codigo é inteiro 
+                if (!int.TryParse(txtCodigo.Text, out x))
+                {
+                    txtCodigo.Focus();
+                    throw new Exception("Insira um Codigo Inteiro");
+                }
+                else if (Convert.ToInt32(txtCodigo.Text) < 1)
+                {
+                    txtCodigo.Focus();
+                    throw new Exception("Insira um Codigo com 3 ou mais digitos");
+                }
+                //verificar se é uma descricão valida
+                if (txtCategoria.Text.Equals("") ||
+                    txtCategoria.Text.Length < 3 ||
+                    txtCategoria.Text.Length > 50)
+                {
+                    txtCategoria.Focus();
+                    throw new Exception("Insira um produto com 3 digitos e inferior a 50");
+                }
+                if (txtZona.Text.Equals("") ||
+                   !System.Text.RegularExpressions.Regex.IsMatch(txtZona.Text, "^[a-zA-Z]"))
+                {
+                    txtZona.Focus();
+                    throw new Exception("Insira a zona (letra A a Z)");
+
+                }
+                if (!int.TryParse(txtFila.Text, out x))
+                {
+                    txtFila.Focus();
+                    throw new Exception("Insira na fila um valor inteiro");
+                }
+                else if (Convert.ToInt32(txtFila.Text) < 1 || Convert.ToInt32(txtFila.Text) > 100)
+                {
+                    txtFila.Focus();
+                    throw new Exception("Digite um valor para a fila entre 1 e 100");
+                }
+                if (!int.TryParse(txtPrateleira.Text, out x))
+                {
+                    txtPrateleira.Focus();
+                    throw new Exception("Insira na prateleira um valor inteiro.");
+                }
+                else if (Convert.ToInt32(txtPrateleira.Text) < 1 || Convert.ToInt32(txtPrateleira.Text) > 10)
+                {
+                    txtPrateleira.Focus();
+                    throw new Exception("Insira na prateleira um valor entre 1 e 10.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            //colocar uma linha no datagridview
+            grelha.Rows.RemoveAt(poslinha);
+            grelha.Rows.Insert(poslinha,txtCodigo.Text, txtCategoria.Text, txtZona.Text, txtFila.Text, txtPrateleira.Text);
+            Limpar();
         }
     }
 }
